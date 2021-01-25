@@ -20,6 +20,11 @@ const initialTodos=[
         id:4,
         text:'기능 구현하기',
         done:false
+    },
+    {
+        id:5,
+        text:'기능 구현하기2',
+        done:false
     }
 ]
 
@@ -48,7 +53,7 @@ const TodoNextIdContext = createContext();
 
 export function TodoProvider({children}){
     const [state, dispatch] = useReducer(todoReducer,initialTodos);
-    const nextId = useRef(5)
+    const nextId = useRef(6)
 
     return (
         <TodoStateContext.Provider value={state}>
@@ -61,7 +66,7 @@ export function TodoProvider({children}){
     )
 }
 
-export function useTodoState(){
+export function TodoState(){
     const context = useContext(TodoStateContext)
     if(!context){
         throw new Error('Cannot find TodoProvider(state)')  //해당 hook들을 사용하기 위해서 TodoProvider컴포넌트 내부에 렌더링이 되어있지않다면 에러발생

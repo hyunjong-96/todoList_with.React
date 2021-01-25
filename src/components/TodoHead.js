@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {useTodoState} from '../TodoContext/TodoContext'
+import {TodoState} from '../TodoContext/TodoContext'
+import dayjs from 'dayjs'
+import 'dayjs/locale/ko'
 //오늘의 날짜와 요일을 보여주고, 앞으로 해야할 일이 몇개 남았는지 보여줌
 
 const HeadBlock = styled.div`
@@ -27,13 +29,19 @@ const HeadBlock = styled.div`
 `
 
 function TodoHead(){
-    const todos = useTodoState()
-    console.log('TodoHead의 todos : ',todos)
+    //undoTasks
+    const todos = TodoState()
+    const undoneTasks = todos.filter(todo=> !todo.done).length
+
+    //날짜
+    dayjs.locale('ko')
+    const date = dayjs()
+    const now = date.format('YYYY년 MM월 DD일')
     return(
         <HeadBlock>
-            <h1>2021년 1월 25일</h1>
-            <div className="day">화요일</div>
-            <div className="tasks-left">할 일 2개 남음</div>
+            <h1>{now}</h1>
+            <div className="day">{date.format('ddd')}요일</div>
+            <div className="tasks-left">할 일 {undoneTasks}개 남음</div>
         </HeadBlock>
     )
 }
