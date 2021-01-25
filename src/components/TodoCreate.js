@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import styled,{css} from 'styled-components'
 import {MdAdd} from 'react-icons/md'
+import {TodoNextId,TodoDispatch} from '../TodoContext/TodoContext'
 //할일을 등록할 수 있게 해주는 컴포넌트, TodoTemplate의 하단부에 초록색 원 버튼을 렌더링해주고,
 //클릭하면 할 일을 입력 할 수 있는 폼이 생성됨.
 
@@ -82,16 +83,35 @@ const Input = styled.input`
 
 function TodoCreate(){
     const [open,setOpen] = useState(false)
-
+    const [value,setValue] = useState('')
+    const dispatch = TodoDispatch()
+    const nextId = TodoNextId()
     const onToggle = () =>{
         setOpen(!open)
+    }
+    const onChange = (e) =>{
+        setValue(e.target.value)
+    }
+    const onSubmit = (e) =>{
+        e.preventDefault()
+        dispatch({
+            type:'CREATE',
+            todo:{
+                id:nextId.current,
+                text:value,
+                done:false
+            }
+        })
+        setValue('')
+        setOpen(false)
+        nextId.current+=1
     }
     return(
         <>
         {open && (
             <InsertFormPositioner>
-                <InsertForm>
-                    <Input autoFocus placeholder="할일을 입력후, Enter를 눌러주세요"/>
+                <InsertForm onSubmit={onSubmit}>
+                    <Input autoFocus onChange={onChange} placeholder="할일을 입력후, Enter를 눌러주세요"/>
                 </InsertForm>
             </InsertFormPositioner>
         )}

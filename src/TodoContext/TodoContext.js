@@ -83,6 +83,7 @@ export function TodoDispatch(){
 //두개의 context를 사용하는 커스텀 Hook을 만들어준다.
 export function TodoNextId(){
     const context = useContext(TodoNextIdContext)
+    
     if(!context){
         throw new Error('cannot find TodoProvider(nextId')
     }

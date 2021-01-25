@@ -7,6 +7,7 @@ const ListBlock = styled.div`
     //border:1px solid red;
     flex : 1; //자신이 차지할 수 있는 영역을 꽉 채우도록 설정.
     margin : 0 1rem;
+    margin-bottom:3rem;
     padding : 1.2rem 1rem;
     padding-bottom : 3rem;
     overflow-y:auto;
