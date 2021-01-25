@@ -3,8 +3,9 @@ import styled from 'styled-components'
 //오늘의 날짜와 요일을 보여주고, 앞으로 해야할 일이 몇개 남았는지 보여줌
 
 const HeadBlock = styled.div`
-    border : 1px solid red;
-    padding : 3rem 2rem;
+    margin : 1rem;
+    padding : 2rem 1rem;
+    border-bottom : 2px solid #e9ecef;
 
     h1{
         margin : 0;
