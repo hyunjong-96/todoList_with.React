@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useTodoState} from '../TodoContext/TodoContext'
 //오늘의 날짜와 요일을 보여주고, 앞으로 해야할 일이 몇개 남았는지 보여줌
 
 const HeadBlock = styled.div`
@@ -26,6 +27,8 @@ const HeadBlock = styled.div`
 `
 
 function TodoHead(){
+    const todos = useTodoState()
+    console.log('TodoHead의 todos : ',todos)
     return(
         <HeadBlock>
             <h1>2021년 1월 25일</h1>
