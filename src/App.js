@@ -7,6 +7,8 @@ import TodoCreate from './components/TodoCreate'
 import Users from './components/Users'
 import Users_Reducer from './components/Users_Reducer'
 import Users_Hook from './components/Users_Hook'
+import Users_Context from './components/Users_Context'
+import {UsersProvider} from './Contexts/UsersContext'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -27,9 +29,12 @@ function App() {
   // );
   return (
     <>
-  <Users/>
+  {/* <Users/>
   <Users_Reducer/>  
-  <Users_Hook/>
+  <Users_Hook/> */}
+  <UsersProvider>
+    <Users_Context/>
+  </UsersProvider>
   </>
     )
 }
