@@ -5,6 +5,7 @@ import TodoHead from './components/TodoHead'
 import TodoList from './components/TodoList'
 import TodoCreate from './components/TodoCreate'
 import Users from './components/Users'
+import Users_Reducer from './components/Users_Reducer'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -23,7 +24,12 @@ function App() {
   //     </TodoTemplate>
   //   </TodoProvider>
   // );
-  return <Users/>
+  return (
+    <>
+  <Users/>
+  <Users_Reducer/>  
+  </>
+    )
 }
 
 export default App;
