@@ -6,6 +6,7 @@ import TodoList from './components/TodoList'
 import TodoCreate from './components/TodoCreate'
 import Users from './components/Users'
 import Users_Reducer from './components/Users_Reducer'
+import Users_Hook from './components/Users_Hook'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -28,6 +29,7 @@ function App() {
     <>
   <Users/>
   <Users_Reducer/>  
+  <Users_Hook/>
   </>
     )
 }
